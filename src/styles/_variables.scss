@@ -1,0 +1,14 @@
+$light-background: #fff;
+$light-text: #000;
+$dark-background: #333;
+$dark-text: #fff;
+
+$light-theme: (
+        background-color: $light-background,
+        text-color: $light-text,
+);
+
+$dark-theme: (
+        background-color: $dark-background,
+        text-color: $dark-text,
+);

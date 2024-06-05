@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Timer from './components/Timer';
+import Settings from './components/Settings';
+import ThemeSwitcher from './components/ThemeSwitcher';
+import ThemeProvider from './contexts/ThemeContext';
+import TimerProvider from './contexts/TimerContext';
+import LanguageProvider from './contexts/LanguageContext';
+import './styles/main.scss';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [settingsVisible, setSettingsVisible] = useState(false);
+
+    const toggleSettings = () => {
+        setSettingsVisible(!settingsVisible);
+    };
+
+    return (
+        <ThemeProvider>
+            <TimerProvider>
+                <LanguageProvider>
+                    <div className="container">
+                        <button className="settings-button" onClick={toggleSettings}>⚙</button>
+                        <ThemeSwitcher />
+                        <Timer />
+                        <div className={`settings-container ${settingsVisible ? 'visible' : 'hidden'}`}>
+                            <Settings />
+                        </div>
+                    </div>
+                </LanguageProvider>
+            </TimerProvider>
+        </ThemeProvider>
+    );
 }
 
 export default App;

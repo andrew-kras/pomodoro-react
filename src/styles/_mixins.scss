@@ -1,0 +1,11 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin theme($theme) {
+  background-color: map-get($theme, background-color);
+  color: map-get($theme, text-color);
+}
+
