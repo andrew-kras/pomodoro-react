@@ -63,6 +63,10 @@ body {
   opacity: 0;
   transform: translateY(-20px);
 
+  border-radius: 8px;
+  padding: 5px;
+  border: 3px solid #007bff;
+
   &.visible {
     opacity: 1;
     transform: translateY(0);
