@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { TimerContext } from '../contexts/TimerContext';
 import { LanguageContext } from '../contexts/LanguageContext';
+import './Settings.scss';
 
 const Settings = () => {
     const { workTime, breakTime, setWorkTime, setBreakTime, enableSound, setEnableSound, enableBrowserNotification, setEnableBrowserNotification } = useContext(TimerContext);
@@ -16,46 +17,55 @@ const Settings = () => {
     return (
         <div className="settings">
             <h2>{translate('settings')}</h2>
-            <div>
-                <label>
-                    {translate('workTime')}:
-                    <input
-                        type="number"
-                        value={newWorkTime}
-                        onChange={(e) => setNewWorkTime(e.target.value)}
-                    />
-                </label>
+            <div className="setting-item">
+                <label>{translate('workTime')}</label>
+                <input
+                    type="number"
+                    value={newWorkTime}
+                    onChange={(e) => setNewWorkTime(e.target.value)}
+                />
             </div>
-            <div>
-                <label>
-                    {translate('breakTime')}:
-                    <input
-                        type="number"
-                        value={newBreakTime}
-                        onChange={(e) => setNewBreakTime(e.target.value)}
-                    />
-                </label>
+            <div className="setting-item">
+                <label>{translate('breakTime')}</label>
+                <input
+                    type="number"
+                    value={newBreakTime}
+                    onChange={(e) => setNewBreakTime(e.target.value)}
+                />
             </div>
-            <div className="settings-options">
+            <div className="setting-item">
                 <label>
-                    <input type="checkbox" checked={enableSound} onChange={() => setEnableSound(!enableSound)} />
+                    <input
+                        type="checkbox"
+                        checked={enableSound}
+                        onChange={() => setEnableSound(!enableSound)}
+                    />
                     {translate('enableSound')}
                 </label>
+            </div>
+            <div className="setting-item">
                 <label>
-                    <input type="checkbox" checked={enableBrowserNotification} onChange={() => setEnableBrowserNotification(!enableBrowserNotification)} />
+                    <input
+                        type="checkbox"
+                        checked={enableBrowserNotification}
+                        onChange={() => setEnableBrowserNotification(!enableBrowserNotification)}
+                    />
                     {translate('enableBrowserNotification')}
                 </label>
             </div>
-            <div>
-                <label>
-                    {translate('language')}:
-                    <select value={language} onChange={(e) => setLanguage(e.target.value)}>
-                        <option value="en">English</option>
-                        <option value="ru">Русский</option>
-                    </select>
-                </label>
+            <div className="setting-item">
+                <label>{translate('language')}</label>
+                <select
+                    value={language}
+                    onChange={(e) => setLanguage(e.target.value)}
+                >
+                    <option value="en">English</option>
+                    <option value="ru">Русский</option>
+                </select>
             </div>
-            <button onClick={handleSave}>{translate('save')}</button>
+            <button className="save-button" onClick={handleSave}>
+                {translate('save')}
+            </button>
         </div>
     );
 };
