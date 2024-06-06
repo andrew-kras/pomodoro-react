@@ -2,7 +2,10 @@ const translations = {
     en: {
         settings: "Settings",
         workTime: "Work Time (minutes)",
+        workTimeNotification: "Work Time",
         breakTime: "Break Time (minutes)",
+        breakTimeNotification: "Break Time",
+        isUp: "is up",
         enableSound: "Enable Sound",
         enableBrowserNotification: "Enable Browser Notification",
         save: "Save",
@@ -18,7 +21,10 @@ const translations = {
     ru: {
         settings: "Настройки",
         workTime: "Рабочее время (минуты)",
+        workTimeNotification: "Рабочее время",
         breakTime: "Время перерыва (минуты)",
+        breakTimeNotification: "Время перерыва",
+        isUp: "вышло",
         enableSound: "Включить звук",
         enableBrowserNotification: "Включить уведомления браузера",
         save: "Сохранить",

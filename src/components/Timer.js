@@ -31,7 +31,7 @@ const Timer = () => {
             clearInterval(interval);
             if (enableSound) audio.play().catch(error => console.error(error));
             if (enableBrowserNotification) {
-                setNotificationMessage(isWork ? translate('workTime') + ' ' + translate('isUp') : translate('breakTime') + ' ' + translate('isUp'));
+                setNotificationMessage(isWork ? translate('workTimeNotification') + ' ' + translate('isUp') : translate('breakTimeNotification') + ' ' + translate('isUp'));
             }
             setIsWork(!isWork);
             setTime(isWork ? breakTime : workTime);
