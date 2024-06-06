@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { FiSettings } from 'react-icons/fi';  // Иконка настроек
+import { MdLightMode, MdDarkMode } from 'react-icons/md';  // Иконки для переключения темы
 import Timer from './components/Timer';
 import Settings from './components/Settings';
 import ThemeSwitcher from './components/ThemeSwitcher';
-import ThemeProvider from './contexts/ThemeContext';
+import ThemeProvider, { ThemeContext } from './contexts/ThemeContext';
 import TimerProvider from './contexts/TimerContext';
 import LanguageProvider from './contexts/LanguageContext';
 import './styles/main.scss';
@@ -19,7 +21,9 @@ function App() {
             <TimerProvider>
                 <LanguageProvider>
                     <div className="container">
-                        <button className="settings-button" onClick={toggleSettings}>⚙</button>
+                        <button className="icon-button settings-button" onClick={toggleSettings}>
+                            <FiSettings />
+                        </button>
                         <ThemeSwitcher />
                         <Timer />
                         <div className={`settings-container ${settingsVisible ? 'visible' : 'hidden'}`}>

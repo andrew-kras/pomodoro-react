@@ -22,18 +22,19 @@ body {
   }
 }
 
-.settings-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.icon-button {
   background: none;
   border: none;
   font-size: 2rem;
   cursor: pointer;
-  color: map-get($light-theme, text-color);
+  transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
 
   &:hover {
-    color: darken(map-get($light-theme, text-color), 20%);
+    color: #007bff;
+  }
+
+  &:active {
+    transform: scale(0.9);
   }
 
   &:focus {
@@ -41,11 +42,18 @@ body {
   }
 }
 
+.settings-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: map-get($light-theme, text-color);
+}
+
 .theme-dark .settings-button {
   color: map-get($dark-theme, text-color);
 
   &:hover {
-    color: lighten(map-get($dark-theme, text-color), 20%);
+    color: #007bff;
   }
 }
 
