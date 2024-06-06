@@ -2,6 +2,7 @@
 @import 'mixins';
 
 body {
+  font-family: 'Roboto', sans-serif;
   @include theme($light-theme);
 }
 
@@ -30,7 +31,7 @@ body {
   transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
 
   &:hover {
-    color: #007bff;
+    color: $blue-color;
   }
 
   &:active {
@@ -53,7 +54,7 @@ body {
   color: map-get($dark-theme, text-color);
 
   &:hover {
-    color: #007bff;
+    color: $blue-color;
   }
 }
 
@@ -65,7 +66,7 @@ body {
 
   border-radius: 8px;
   padding: 5px;
-  border: 3px solid #007bff;
+  border: 3px solid $blue-color;
 
   &.visible {
     opacity: 1;
