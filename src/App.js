@@ -3,7 +3,7 @@ import { FiSettings } from 'react-icons/fi';
 import Timer from './components/Timer';
 import Settings from './components/Settings';
 import ThemeSwitcher from './components/ThemeSwitcher';
-import ThemeProvider, { ThemeContext } from './contexts/ThemeContext';
+import ThemeProvider from './contexts/ThemeContext';
 import TimerProvider from './contexts/TimerContext';
 import LanguageProvider from './contexts/LanguageContext';
 import './styles/main.scss';

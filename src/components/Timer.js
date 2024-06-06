@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import Notification from './Notification';
 import { TimerContext } from '../contexts/TimerContext';
 import { LanguageContext } from '../contexts/LanguageContext';
@@ -11,7 +11,7 @@ const Timer = () => {
     const [isActive, setIsActive] = useState(false);
     const [isWork, setIsWork] = useState(true);
     const [notificationMessage, setNotificationMessage] = useState('');
-    const audio = new Audio(process.env.PUBLIC_URL + '/sound.wav');
+    const audio = useMemo(() => new Audio(process.env.PUBLIC_URL + '/sound.wav'), []);
 
     useEffect(() => {
         setTime(isWork ? workTime : breakTime);
