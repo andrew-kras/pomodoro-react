@@ -11,7 +11,7 @@ const Timer = () => {
     const [isActive, setIsActive] = useState(false);
     const [isWork, setIsWork] = useState(true);
     const [notificationMessage, setNotificationMessage] = useState('');
-    const audio = new Audio(process.env.PUBLIC_URL + '/sound.wav'); // Correct path to sound file
+    const audio = new Audio(process.env.PUBLIC_URL + '/sound.wav');
 
     useEffect(() => {
         setTime(isWork ? workTime : breakTime);

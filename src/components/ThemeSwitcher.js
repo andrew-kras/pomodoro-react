@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { MdLightMode, MdDarkMode } from 'react-icons/md';  // Иконки для переключения темы
+import { MdLightMode, MdDarkMode } from 'react-icons/md';
 import { ThemeContext } from '../contexts/ThemeContext';
 import './ThemeSwitcher.scss';
 

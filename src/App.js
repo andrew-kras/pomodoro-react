@@ -1,6 +1,5 @@
-import React, { useState, useContext } from 'react';
-import { FiSettings } from 'react-icons/fi';  // Иконка настроек
-import { MdLightMode, MdDarkMode } from 'react-icons/md';  // Иконки для переключения темы
+import React, { useState } from 'react';
+import { FiSettings } from 'react-icons/fi';
 import Timer from './components/Timer';
 import Settings from './components/Settings';
 import ThemeSwitcher from './components/ThemeSwitcher';
