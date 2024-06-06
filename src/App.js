@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiSettings } from 'react-icons/fi';
 import Timer from './components/Timer';
 import Settings from './components/Settings';
@@ -10,10 +10,25 @@ import './styles/main.scss';
 
 function App() {
     const [settingsVisible, setSettingsVisible] = useState(false);
+    const [settingsClass, setSettingsClass] = useState('hidden');
 
     const toggleSettings = () => {
-        setSettingsVisible(!settingsVisible);
+        if (settingsVisible) {
+            setSettingsClass('hidden');
+            setTimeout(() => setSettingsVisible(false), 500); // Время должно соответствовать времени анимации
+        } else {
+            setSettingsVisible(true);
+            setTimeout(() => setSettingsClass('visible'), 10); // Небольшая задержка для запуска анимации
+        }
     };
+
+    useEffect(() => {
+        if (settingsVisible) {
+            setSettingsClass('visible');
+        } else {
+            setSettingsClass('hidden');
+        }
+    }, [settingsVisible]);
 
     return (
         <ThemeProvider>
@@ -25,9 +40,11 @@ function App() {
                         </button>
                         <ThemeSwitcher />
                         <Timer />
-                        <div className={`settings-container ${settingsVisible ? 'visible' : 'hidden'}`}>
-                            <Settings />
-                        </div>
+                        {settingsVisible && (
+                            <div className={`settings-container ${settingsClass}`}>
+                                <Settings />
+                            </div>
+                        )}
                     </div>
                 </LanguageProvider>
             </TimerProvider>
