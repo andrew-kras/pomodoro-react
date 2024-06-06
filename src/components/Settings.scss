@@ -5,7 +5,7 @@
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 
   h2 {
     font-size: 1.5rem;
@@ -61,6 +61,34 @@
 
     &:focus {
       outline: none;
+    }
+  }
+
+  .theme-dark & {
+    background-color: #444;
+    color: #fff;
+
+    input[type="number"],
+    select {
+      background-color: #333;
+      border: 1px solid #555;
+      color: #fff;
+
+      &:focus {
+        border-color: #007bff;
+      }
+    }
+
+    input[type="checkbox"] {
+      accent-color: #007bff;
+    }
+
+    .save-button {
+      background-color: #007bff;
+
+      &:hover {
+        background-color: #0056b3;
+      }
     }
   }
 }
