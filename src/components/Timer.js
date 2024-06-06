@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import Notification from './Notification';
 import { TimerContext } from '../contexts/TimerContext';
 import { LanguageContext } from '../contexts/LanguageContext';
+import { ThemeContext } from '../contexts/ThemeContext';
 import './Timer.scss';
 
 const Timer = () => {
     const { workTime, breakTime, enableSound, enableBrowserNotification } = useContext(TimerContext);
     const { translate } = useContext(LanguageContext);
+    const { theme } = useContext(ThemeContext);
     const [time, setTime] = useState(workTime);
     const [isActive, setIsActive] = useState(false);
     const [isWork, setIsWork] = useState(true);
@@ -57,12 +61,20 @@ const Timer = () => {
     };
 
     const progress = ((isWork ? workTime - time : breakTime - time) / (isWork ? workTime : breakTime)) * 100;
+    const textColor = theme === 'dark' ? '#fff' : '#000';
 
     return (
         <div className="timer">
-            <div className="time-display">{Math.floor(time / 60)}:{('0' + time % 60).slice(-2)}</div>
-            <div className="progress-bar">
-                <div className="progress" style={{ width: `${progress}%` }}></div>
+            <div className="circular-progress-bar">
+                <CircularProgressbar
+                    value={progress}
+                    text={`${Math.floor(time / 60)}:${('0' + time % 60).slice(-2)}`}
+                    styles={buildStyles({
+                        textColor: textColor,
+                        pathColor: '#007bff',
+                        trailColor: '#ddd',
+                    })}
+                />
             </div>
             <div className="controls">
                 <button onClick={toggleTimer}>{isActive ? translate('pause') : translate('start')}</button>
